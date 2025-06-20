@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    
+
     const screen = document.querySelector(".screen");
     const digitButtons = document.querySelectorAll(".digit");
     const operatorButtons = document.querySelectorAll(".operator");
@@ -92,6 +92,20 @@ document.addEventListener("DOMContentLoaded", () => {
         num2 = "";
         currentOperator = "";
         outputDisplay = false; // Reset output display
+    });
+
+    backspace.addEventListener("click", () => {
+        let currentText = screen.textContent;
+        if(outputDisplay || currentText === "0"){
+            screen.textContent = "0"; // If output is displayed or screen is "0", reset to "0"
+            outputDisplay = false; 
+            return;
+        }
+        if(currentText.length > 1){
+            screen.textContent = currentText.slice(0, -1); // Remove last character
+        } else {
+            screen.textContent = "0"; // If only one character left, reset to "0"
+        }
     });
 
 });
