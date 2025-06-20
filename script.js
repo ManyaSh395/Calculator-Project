@@ -1,6 +1,6 @@
 const screen = document.querySelector(".screen");
-const digitButtons = document.querySelector(".digit");
-const operatorButtons = document.querySelector(".operator");
+const digitButtons = document.querySelectorAll(".digit");
+const operatorButtons = document.querySelectorAll(".operator");
 const clear = document.querySelector(".clear");
 const backspace = document.querySelector(".backspace");
 const equalsButton = document.querySelector(".equals");
@@ -26,7 +26,7 @@ const multiply = (a,b) => {
 
 const divide = (a,b) => {
     if(b === 0){
-        screen.innerText = "SYNTAX ERROR";
+        return "SYNTAX ERROR";
     }
     else {
         return (a / b);
